@@ -1,7 +1,5 @@
-import { User } from "./User"
 import { useState, useEffect } from "react";
-
-export const user = new User('Radosław', 'Gajewski', 'https://cdn.discordapp.com/attachments/907309064873181205/1082656872055709767/72368900_1026279334372206_773878258344132608_n.jpg')
+import { User } from "./User"
 
 const dailyChallenges = [
   ['Zrób pranie', 35],
@@ -16,7 +14,7 @@ const dailyChallengesList = dailyChallenges.map(challenge => {
   return <li><div id='list-element'><div class="list-point"></div>{challenge[0]}</div>  <div id="experience-box">{challenge[1]} exp</div></li>;
 })
 
-
+const user = new User("Radosław", "Gajewski", "https://cdn.discordapp.com/attachments/907309064873181205/1082656872055709767/72368900_1026279334372206_773878258344132608_n.jpg")
 
 function App() {
 
@@ -84,15 +82,16 @@ function App() {
     <div id="flex-view">
       <div id="personal-challenges">
         <p>Witaj<br/>{user.first_name} {user.sure_name}</p>
-        <div id="personal-challenges-box">
-        <p>Zadania dnia</p>
-          <ul id="personal-challenges-list">
-            {userTodoItems}
+        <div>
+        <p>Twoje zadania</p>
+          <div id="personal-challenges-box">
+            <ul id="personal-challenges-list">
+              {userTodoItems}   
+            </ul>
             <div id="add-todo">
-              <button id="add-todo-button" onClick={handleAddTodoClick}>Dodaj</button>
-            </div>
-          </ul>
-          
+                <button id="add-todo-button" onClick={handleAddTodoClick}>Dodaj</button>
+              </div>
+          </div>
         </div>
       </div>
       <div id="daily-challenges">
@@ -106,6 +105,8 @@ function App() {
     </div>
     </>
   );
+  
+  
 }
 
 export default App;
