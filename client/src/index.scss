@@ -264,9 +264,9 @@ body {
     justify-content: center;
     
     form {
-        padding-top: 40px;
+        padding: 40px;
         width: 400px;
-        height: 500px;
+        height: fit-content;
         justify-self: center;
         display: flex;
         flex-direction: column;

@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import Axios from 'axios'
+import logo from "./logo-reverse.svg"
+
 
 export const Register = (props) => {
     const [nameReg, setName] = useState("")
@@ -24,17 +26,27 @@ export const Register = (props) => {
     return (
         <div className="auth-form-container">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Imie</label>
+                <img src={logo}></img>
+                <label htmlFor="name"><p>Imie</p>
                 <input value={nameReg} onChange={(e) => setName(e.target.value)} type="text" placeholder="Jan" id="name" name="name"></input>
-                <label htmlFor="surname">Nazwisko</label>
+                </label>
+                
+                <label htmlFor="surname"><p>Nazwisko</p>
                 <input value={surnameReg} onChange={(e) => setSurname(e.target.value)} type="text" placeholder="Kowalski" id="surname" name="surname"></input>
-                <label htmlFor="email">Email</label>
+                </label>
+                
+                <label htmlFor="email"><p>E-mail</p>
                 <input value={emailReg} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="jankowalski@gmail.com" id="email" name="email"></input>
-                <label htmlFor="password">Hasło</label>
+                </label>
+                
+                <label htmlFor="password"><p>Hasło</p>
                 <input value={passReg} onChange={(e) => setPass(e.target.value)} type="password" id="password" name="password"></input>
+                </label>
+                
                 <input type="submit" value="Zarejestruj konto"></input>
+                <button onClick={() => props.onFormSwitch('login')}>Masz już konto. Zaloguj się.</button>
             </form>
-            <button onClick={() => props.onFormSwitch('login')}>Masz już konto. Zaloguj się.</button>
+            
         </div>
     )
 }
