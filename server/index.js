@@ -19,11 +19,12 @@ app.post('/register', (req, res) => {
     const surname = req.body.surname
     const email = req.body.email
     const password_hash = req.body.password
+    const todos = "[]"
     
 
     db.query(
-        "INSERT INTO todlex.users (name, surname, email, password_hash) VALUES (?, ?, ?, ?)",
-        [name, surname, email, password_hash],
+        "INSERT INTO todlex.users (name, surname, email, password_hash, todos) VALUES (?, ?, ?, ?, ?)",
+        [name, surname, email, password_hash, todos],
         (err, result) => { 
             if (err) {
                 console.log(err);
@@ -32,14 +33,6 @@ app.post('/register', (req, res) => {
             res.status(200).send('User registered successfully');
         }
     );
-
-    db.query(
-        "SELECT todos FROM users WHERE email = ?",
-        [email],
-        (err, result) => {
-            const todos = JSON.parse(userInfo[0].todos)
-        }
-    )
 });
 
 app.post('/api/user/todos', (req, res) => {

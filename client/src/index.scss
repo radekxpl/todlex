@@ -262,6 +262,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #FF5C00;
     
     form {
         padding: 40px;
@@ -299,12 +300,13 @@ body {
             border-radius: 20px;
             border: none;
             background-color: #FF5C00;
-        }
+            color: #fff;
+            font-size: 15px;
 
         input:focus {
             outline: none;
         }
     }   
 
-
+    }
 }
